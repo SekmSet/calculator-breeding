@@ -1,0 +1,79 @@
+.etape3-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .table {
+    padding: 0.5em;
+    margin: 4em;
+
+    color: white;
+    font-size:1em;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .label, .dates{
+      width: 25%;
+      border: solid 0.5px black;
+
+      &.label{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+
+    .head, .body, .jours, .dates {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+
+      &.head, &.body {
+        height: 5em;
+      }
+
+      &.dates {
+        align-items: center
+      }
+    }
+  }
+}
+
+@media (max-width: 1299px) {
+  .etape3-container {
+    .table {
+      flex-direction: row;
+      width: 100%;
+
+      .label, .dates {
+        width: 100%;
+        height: auto;
+
+        &.label{
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      }
+
+      .head, .body, .jours, .dates {
+        &.head, &.body {
+          width: 50%;
+          height: auto;
+        }
+
+        &.jours, &.dates {
+          border: none;
+        }
+
+        justify-content: space-between;
+        flex-direction: column;
+      }
+    }
+  }
+}

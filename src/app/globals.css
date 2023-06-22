@@ -105,3 +105,40 @@ a {
     color-scheme: dark;
   }
 }
+
+
+button {
+  /* SIZE */
+  height: 6em;
+  width: 50%;
+
+  /* MARGIN & PADDING */
+  margin: 1em;
+
+  /* BORDER */
+  border-radius: 3px;
+  border: transparent;
+
+  /* BACKGROUND */
+  background-image : linear-gradient(to right, #CECAB3 0%, #8D7665 57%, #8D7665 19%);
+
+  /* FONT */
+  font-size: 15px;
+  letter-spacing: 10px;
+  color: #FFFF;
+  font-weight: bold;
+
+  /* TRANSITION */
+  transition: 1s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-image : linear-gradient(90deg, #AAAAAA 20%, #4E4E4E 90%, #303030 98%);
+}
+
+button:not(.disabled):hover{
+  background-position: right center;
+  color: black;
+  box-shadow: 0 0 20px #CECAB3;
+}
