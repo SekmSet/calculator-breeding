@@ -1,111 +1,111 @@
+"use client";
 import { useEffect, useState} from "react";
 import dayjs from "../../service/date";
+import {createPDF} from "../../service/pdf";
 import {useApp} from "../../context/appContext";
 import "./stepThree.scss";
 
 const Etape3 = () => {
-    const { setEtape, setRace, setSaillieDate, setType, saillieDate, ovulation } =
+    const [echographie, setEchographie] = useState({ day20: "", day25: "" });
+    const [radiographie, setRadiographie] = useState({ day50: "", day55: "" });
+    const [naissance, setNaissance] = useState({
+        day64: "",
+        day65: "",
+        day66: "",
+    });
+    const { name, breed, reset, setStepValue, setNameValue, setSaillieDateValue, setDisabled, saillieDate, ovulation } =
         useApp();
 
-    const validate = () => {
-        setEtape(1);
-        setRace("");
-        setSaillieDate("");
-        setType("");
+    const restart = () => {
+        reset()
     };
 
-    const [echographie, setEchographie] = useState({ jour20: "", jour25: "" });
-    const [radiographie, setRadiographie] = useState({ jour50: "", jour55: "" });
-    const [naissance, setNaissance] = useState({
-        jour64: "",
-        jour65: "",
-        jour66: "",
-    });
+    const back = () => {
+        setNameValue("")
+        setSaillieDateValue(null)
+        setDisabled(true)
+        setStepValue(2);
+    };
+
+    const save = () => {
+        createPDF({
+            name,
+            breed,
+            ovulation,
+            echographie,
+            radiographie,
+            naissance,
+            saillieDate
+        })
+    };
 
     useEffect(() => {
         const echographieJ20 = dayjs(ovulation, "DD/MM/YYYY").add(20, "day").format("DD/MM/YYYY");
         const echographieJ25 = dayjs(ovulation, "DD/MM/YYYY").add(25, "day").format("DD/MM/YYYY");
 
         setEchographie({
-            jour20: echographieJ20,
-            jour25: echographieJ25,
+            day20: echographieJ20,
+            day25: echographieJ25,
         });
 
         const radiographie50 = dayjs(ovulation, "DD/MM/YYYY").add(50, "day").format("DD/MM/YYYY");
         const radiographie55 = dayjs(ovulation, "DD/MM/YYYY").add(55, "day").format("DD/MM/YYYY");
-        setRadiographie({ jour50: radiographie50, jour55: radiographie55 });
+        setRadiographie({ day50: radiographie50, day55: radiographie55 });
 
         const naissance64 = dayjs(ovulation, "DD/MM/YYYY").add(64, "day").format("DD/MM/YYYY");
         const naissance65 = dayjs(ovulation, "DD/MM/YYYY").add(65, "day").format("DD/MM/YYYY");
         const naissance66 = dayjs(ovulation, "DD/MM/YYYY").add(66, "day").format("DD/MM/YYYY");
         setNaissance({
-            jour64: naissance64,
-            jour65: naissance65,
-            jour66: naissance66,
+            day64: naissance64,
+            day65: naissance65,
+            day66: naissance66,
         });
     }, []);
 
-    console.log(naissance);
     return (
         <div className="etape3-container">
-            <h1>RESULTAT : </h1>
+            <button className="back-button"  onClick={back}>RETOUR</button>
+            {name.length > 0 ? (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} <span id="name">{name}</span> : </h1>) : (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} : </h1>)}
 
-            <div className="table">
-                <div className="head">
-                    <div className="label">
-                        <div>Saillie</div>
-                        <div className="jours" />
-                    </div>
-                    <div className="label">
-                        <div>Ovulation</div>
-                        <div className="jours">
-                            <div>J+1</div>
-                        </div>
-                    </div>
-                    <div className="label">
-                        <div>Echoagraphie</div>
-                        <div className="jours">
-                            <div>J+20</div>
-                            <div>J+25</div>
-                        </div>
-                    </div>
-                    <div className="label">
-                        <div>Radiographie</div>
-                        <div className="jours">
-                            <div>J+50</div>
-                            <div>J+55</div>
-                        </div>
-                    </div>
-                    <div className="label">
-                        <div>Mise bas</div>
-                        <div className="jours">
-                            <div>J+64</div>
-                            <div>J+65</div>
-                            <div>J+66</div>
-                        </div>
-                    </div>
+            <div className="cards">
+                <div className="box">
+                    <h3>Accouplement</h3>
+                    <div>Jour + 0 {saillieDate}</div>
                 </div>
-                <div className="body">
-                    <div className="dates">{saillieDate}</div>
-                    <div className="dates">{ovulation}</div>
-                    <div className="dates">
-                        <div>{echographie?.jour20}</div>
-                        <div>{echographie?.jour25}</div>
-                    </div>
-                    <div className="dates">
-                        <div>{radiographie?.jour50}</div>
-                        <div>{radiographie?.jour55}</div>
-                    </div>
-                    <div className="dates">
-                        <div>{naissance?.jour64}</div>
-                        <div>{naissance?.jour65}</div>
-                        <div>{naissance?.jour66}</div>
-                    </div>
+
+                <div className="box">
+                    <h3>Ovulation</h3>
+                    <div>Jour + 1 {ovulation}</div>
+                </div>
+
+
+                <div className="box">
+                    <h3>Echoagraphie</h3>
+                    <div>Jour + 20 {echographie?.day20}</div>
+                    <div>Jour + 25 {echographie?.day25}</div>
+                </div>
+
+                <div className="box">
+                    <h3>Radiographie</h3>
+                    <div>Jour + 50 {radiographie?.day50}</div>
+                    <div>Jour + 55 {radiographie?.day55}</div>
+                </div>
+
+                <div className="box">
+                    <h3>Mise bas</h3>
+                    <div>Jour + 64 {naissance?.day64}</div>
+                    <div>Jour + 65 {naissance?.day65}</div>
+                    <div>Jour + 66 {naissance?.day66}</div>
                 </div>
             </div>
-            <button onClick={validate}>RECOMMENCER</button>
+
+            <button className="savePDF" onClick={save}>TELECHARGER (PDF)</button>
+            <button onClick={restart}>RECOMMENCER</button>
         </div>
     );
 };
 
 export default Etape3;
+
+
+// April03@XXXVPepsi25egpstrawHe🌔Iceland2024Rxh7+

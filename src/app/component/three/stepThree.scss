@@ -1,78 +1,49 @@
 .etape3-container {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-  .table {
-    padding: 0.5em;
-    margin: 4em;
+  h1 {
+    text-align: center;
+  }
 
-    color: white;
-    font-size:1em;
+  h3 {
+    font-size: 2em;
+    padding: 0 0 1em 0;
+  }
 
-    width: 100%;
+  #name {
+    color: darkcyan;
+  }
 
+  div.cards {
     display: flex;
     flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
 
-    .label, .dates{
-      width: 25%;
-      border: solid 0.5px black;
-
-      &.label{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-    }
-
-    .head, .body, .jours, .dates {
-      display: flex;
-      justify-content: space-around;
-      flex-direction: row;
-
-      &.head, &.body {
-        height: 5em;
-      }
-
-      &.dates {
-        align-items: center
-      }
+    div.box {
+      margin: 1em;
+      padding: 1em;
+      min-height: 6em;
+      border: solid 1px pink;
+      border-radius: 20px;
     }
   }
 }
 
-@media (max-width: 1299px) {
+@media (min-width: 1000px) {
   .etape3-container {
-    .table {
-      flex-direction: row;
+    div.cards {
       width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
 
-      .label, .dates {
-        width: 100%;
-        height: auto;
-
-        &.label{
-          flex-direction: column;
-          justify-content: space-between;
-        }
-      }
-
-      .head, .body, .jours, .dates {
-        &.head, &.body {
-          width: 50%;
-          height: auto;
-        }
-
-        &.jours, &.dates {
-          border: none;
-        }
-
-        justify-content: space-between;
-        flex-direction: column;
+      div.box {
+        width: 18%;
       }
     }
   }

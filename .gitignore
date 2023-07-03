@@ -37,3 +37,8 @@ yarn-error.log*
 next-env.d.ts
 
 next-config.js
+
+*.tfstate
+*.tfstate.backup
+*.tfvars
+backend.tf

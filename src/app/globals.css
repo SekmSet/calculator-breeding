@@ -1,3 +1,7 @@
+@font-face {
+  font-family: hoomanLove;
+  src: url("../../public/font/hooman_love.otf");
+}
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -86,13 +90,14 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background: white;
+}
+
+h1 {
+  font-family: hoomanLove, sans-serif;
+  font-size: 5em;
+  padding: 1em;
 }
 
 a {
@@ -106,8 +111,11 @@ a {
   }
 }
 
-
 button {
+  border-radius: 3px;
+}
+
+button:not(.back-button) {
   /* SIZE */
   height: 6em;
   width: 50%;
@@ -116,11 +124,10 @@ button {
   margin: 1em;
 
   /* BORDER */
-  border-radius: 3px;
   border: transparent;
 
   /* BACKGROUND */
-  background-image : linear-gradient(to right, #CECAB3 0%, #8D7665 57%, #8D7665 19%);
+  background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%);
 
   /* FONT */
   font-size: 15px;
@@ -130,15 +137,32 @@ button {
 
   /* TRANSITION */
   transition: 1s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+.button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 button:disabled {
+  background-image: linear-gradient(to right, #bdc3c7 0%, #2c3e50  51%, #bdc3c7  100%);
   cursor: not-allowed;
-  background-image : linear-gradient(90deg, #AAAAAA 20%, #4E4E4E 90%, #303030 98%);
 }
 
 button:not(.disabled):hover{
   background-position: right center;
-  color: black;
-  box-shadow: 0 0 20px #CECAB3;
+  color: #fff;
+  text-decoration: none;
+  cursor: url('../../public/paw.png'), auto;
+}
+
+button.back-button {
+  background: dimgrey;
+  width: 10em;
+  padding: 1em;
+  border: none;
 }

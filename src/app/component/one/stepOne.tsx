@@ -1,17 +1,19 @@
+"use client";
 import {useApp} from "../../context/appContext";
 import "./stepOne.scss";
 
 const Etape1 = () => {
-    const { setEtape, setType } = useApp();
+    const { setBreedValue, setStepValue } = useApp();
 
     const validateChien = () => {
-        setEtape(2);
-        setType("CHIEN");
+        setStepValue(2);
+        setBreedValue("CHIEN")
     };
 
     const validateChat = () => {
-        setEtape(2);
-        setType("CHAT");
+        console.log('rez')
+        setStepValue(2);
+        setBreedValue("CHAT")
     };
 
     return (

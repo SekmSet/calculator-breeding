@@ -7,23 +7,23 @@ import StepThree from "./component/three/stepThree";
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
-  const { etape } = useApp();
+  const { step } = useApp();
 
   useEffect(() => {
-    if (etape !== undefined) {
+    if (step !== undefined) {
       setLoading(true);
     }
-  }, [etape]);
+  }, [step]);
 
   return (
       <>
         {loading && (
             <div className="App">
-              {etape === 1 && <StepOne />}
+              {step === 1 && <StepOne />}
 
-              {etape === 2 && <StepTwo />}
+              {step === 2 && <StepTwo />}
 
-              {etape === 3 && <StepThree />}
+              {step === 3 && <StepThree />}
             </div>
         )}
       </>
