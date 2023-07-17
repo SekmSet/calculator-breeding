@@ -63,49 +63,66 @@ const Etape3 = () => {
     }, []);
 
     return (
-        <div className="etape3-container">
+        <>
             <button className="back-button"  onClick={back}>RETOUR</button>
-            {name.length > 0 ? (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} <span id="name">{name}</span> : </h1>) : (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} : </h1>)}
+            <div className="etape3-container">
+                {name.length > 0 ? (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} <span id="name">{name}</span> : </h1>) : (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} : </h1>)}
 
-            <div className="cards">
-                <div className="box">
-                    <h3>Accouplement</h3>
-                    <div>Jour + 0 {saillieDate}</div>
+                <div className="cards">
+                    <div className="box">
+                        <h3>Saillie</h3>
+                        <p className="span">
+                            <b>Jour + 0</b> <span>{saillieDate}</span>
+                        </p>
+                    </div>
+
+                    <div className="box">
+                        <h3>Ovulation</h3>
+                        <p className="span">
+                            <b>Jour + 1</b> <span>{ovulation} </span>
+                        </p>
+                    </div>
+
+
+                    <div className="box">
+                        <h3>Echoagraphie</h3>
+                        <p className="span">
+                            <b>Jour + 20</b> <span>{echographie?.day20}</span>
+                        </p>
+                        <p className="span">
+                            <b>Jour + 25</b> <span>{echographie?.day25}</span>
+                        </p>
+                    </div>
+
+                    <div className="box">
+                        <h3>Radiographie</h3>
+                        <p className="span">
+                            <b>Jour + 50</b> <span>{radiographie?.day50}</span>
+                        </p>
+                        <p className="span">
+                            <b>Jour + 55</b> <span>{radiographie?.day55}</span>
+                        </p>
+                    </div>
+
+                    <div className="box">
+                        <h3>Mise bas</h3>
+                        <p className="span">
+                            <b>Jour + 64</b> <span>{naissance?.day64}</span>
+                        </p>
+                        <p className="span">
+                            <b>Jour + 65</b> <span>{naissance?.day65}</span>
+                        </p>
+                        <p className="span">
+                            <b>Jour + 66</b> <span>{naissance?.day66}</span>
+                        </p>
+                    </div>
                 </div>
 
-                <div className="box">
-                    <h3>Ovulation</h3>
-                    <div>Jour + 1 {ovulation}</div>
-                </div>
-
-
-                <div className="box">
-                    <h3>Echoagraphie</h3>
-                    <div>Jour + 20 {echographie?.day20}</div>
-                    <div>Jour + 25 {echographie?.day25}</div>
-                </div>
-
-                <div className="box">
-                    <h3>Radiographie</h3>
-                    <div>Jour + 50 {radiographie?.day50}</div>
-                    <div>Jour + 55 {radiographie?.day55}</div>
-                </div>
-
-                <div className="box">
-                    <h3>Mise bas</h3>
-                    <div>Jour + 64 {naissance?.day64}</div>
-                    <div>Jour + 65 {naissance?.day65}</div>
-                    <div>Jour + 66 {naissance?.day66}</div>
-                </div>
+                <button className="savePDF" onClick={save}>TELECHARGER (PDF)</button>
+                <button onClick={restart}>RECOMMENCER</button>
             </div>
-
-            <button className="savePDF" onClick={save}>TELECHARGER (PDF)</button>
-            <button onClick={restart}>RECOMMENCER</button>
-        </div>
+        </>
     );
 };
 
 export default Etape3;
-
-
-// April03@XXXVPepsi25egpstrawHe🌔Iceland2024Rxh7+

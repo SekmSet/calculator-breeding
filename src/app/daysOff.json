@@ -1,0 +1,16 @@
+{
+ "france" : {
+    "Jour de l'an": "01/01",
+    "Pâques":"",
+    "Lundi de Pâques": "",
+    "Fête du Travail":"1/05",
+    "Fête nationale du 8 mai 1945": "8/05",
+    "Ascension":"",
+    "Lundi de Pentecôte": "",
+    "Fête Nationale du 14 juillet":"14/07",
+    "Assomption": "15/08",
+    "Toussaint":"01/11",
+    "Armistice": "11/11",
+    "Jour de Noël":"25/12"
+  }
+}

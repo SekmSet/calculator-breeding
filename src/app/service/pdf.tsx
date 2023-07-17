@@ -45,8 +45,8 @@ const createPDF = ({name, breed, ovulation, echographie, radiographie, naissance
 
     doc.text("En cas de doute je consulte mon vétérinaire ou un vétérinaire d'urgence", 10, 190);
     doc.text("Numéro de téléphone de mon véterinaire ", 10, 200);
-    doc.text("Numéro de téléphone d'un véterinaire d'urgence ", 10, 220);
-    doc.text("Remarque(S) ", 10, 240);
+    doc.text("Numéro de téléphone un véterinaire d'urgence ", 10, 220);
+    doc.text("Remarque(s) ", 10, 240);
 
     doc.save("breeding.pdf");
 }

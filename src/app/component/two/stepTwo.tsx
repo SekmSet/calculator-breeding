@@ -26,51 +26,52 @@ const Etape2 = () => {
     }
 
     return (
-        <div className="etape2-container">
+        <>
             <button className="back-button" onClick={back}>RETOUR</button>
 
-            <div className="form">
-                {/*<div className="form-card">*/}
-                    <label>JE CHOISIS LA RACE</label>
-                    <select onChange={(e) => setBreedValue(e.target.value)} name="chats" id="chat-select">
-                        {cats.list?.map((cat : CatType, index: number) => (
-                            <option value={cat.id} key={index}>
-                                {cat.name}
-                            </option>
-                        ))}
-                    </select>
-                {/*</div>*/}
+            <div className="etape2-container">
+                <div className="form">
+                    <div className="form-card">
+                        <label>CHOIX DE LA RACE</label>
+                        <select onChange={(e) => setBreedValue(e.target.value)} name="chats" id="chat-select">
+                            {cats.list?.map((cat : CatType, index: number) => (
+                                <option value={cat.id} key={index}>
+                                    {cat.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
 
-                {/*<div className="form-card">*/}
-                    <label>J INDIQUE LA DATE DE SAILLIE</label>
-                    <input
-                        onChange={(e) => setSaillieDateValue(e.target.value)}
-                        type="date"
-                        id="date-saillie"
-                    />
+                    <div className="form-card">
+                        <label>DATE DE SAILLIE</label>
+                        <input
+                            onChange={(e) => setSaillieDateValue(e.target.value)}
+                            type="date"
+                            id="date-saillie"
+                        />
+                     </div>
 
-                 {/*</div>*/}
+                    <div className="form-card">
+                        <label>NOM DE MON ANIMAL <span className="facultatif">(facultatif)</span> </label>
+                        <input
+                            onChange={(e) => setName(e.target.value)}
+                            type="text"
+                            placeholder="Obrigada"
+                            id="name"
+                        />
+                     </div>
 
-                {/*<div className="form-card">*/}
-                    <label>NOM DE L ANIMAL <span className="facultatif">(facultatif)</span> </label>
-                    <input
-                        onChange={(e) => setName(e.target.value)}
-                        type="text"
-                        placeholder="Moka"
-                        id="name"
-                    />
-                 {/*</div>*/}
-
-                <button
-                    className={isDisabled ? "disabled" : ""}
-                    disabled={isDisabled}
-                    onClick={validate}
-                >
-                    RESULTAT
-                </button>
+                    <button
+                        className={isDisabled ? "disabled" : ""}
+                        disabled={isDisabled}
+                        onClick={validate}
+                    >
+                        RESULTAT
+                    </button>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
