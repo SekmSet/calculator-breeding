@@ -1,9 +1,9 @@
 "use client";
 import {useEffect, useState} from "react";
 import {useApp} from "./context/appContext";
-import StepOne from "./component/one/stepOne";
-import StepTwo from "./component/two/stepTwo";
-import StepThree from "./component/three/stepThree";
+import StepOne from "./page/one/stepOne";
+import StepTwo from "./page/two/stepTwo";
+import StepThree from "./page/three/stepThree";
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);

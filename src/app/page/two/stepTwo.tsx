@@ -2,6 +2,7 @@
 import {useApp} from "../../context/appContext";
 import cats from "../../cats.json";
 import "./stepTwo.scss";
+import Button from "@/app/component/Button";
 
 type CatType = {
     id: number;
@@ -27,7 +28,11 @@ const Etape2 = () => {
 
     return (
         <>
-            <button className="back-button" onClick={back}>RETOUR</button>
+            <Button
+                text="RETOUR"
+                handle={back}
+                className="back-button"
+            />
 
             <div className="etape2-container">
                 <div className="form">
@@ -41,7 +46,6 @@ const Etape2 = () => {
                             ))}
                         </select>
                     </div>
-
 
                     <div className="form-card">
                         <label>DATE DE SAILLIE</label>
@@ -62,17 +66,16 @@ const Etape2 = () => {
                         />
                      </div>
 
-                    <button
-                        className={isDisabled ? "disabled" : ""}
+                    <Button
+                        text="RESULTAT"
                         disabled={isDisabled}
-                        onClick={validate}
-                    >
-                        RESULTAT
-                    </button>
+                        handle={validate}
+                        className={isDisabled ? "disabled" : ""}
+                    />
                 </div>
             </div>
         </>
     );
-};
+}
 
 export default Etape2;

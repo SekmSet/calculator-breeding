@@ -1,5 +1,6 @@
 "use client";
 import {useApp} from "../../context/appContext";
+import Button from "../../component/Button";
 import "./stepOne.scss";
 
 const Etape1 = () => {
@@ -11,7 +12,6 @@ const Etape1 = () => {
     };
 
     const validateChat = () => {
-        console.log('rez')
         setStepValue(2);
         setBreedValue("CHAT")
     };
@@ -19,10 +19,17 @@ const Etape1 = () => {
     return (
         <div className="etape1-container">
             <h1>JE CALCULE POUR UN :</h1>
-            <button disabled className="disabled" onClick={validateChien}>
-                CHIEN
-            </button>
-            <button onClick={validateChat}>CHAT</button>
+            <Button
+                text="CHIEN"
+                disabled={true}
+                handle={validateChien}
+                className="disabled"
+            />
+
+            <Button
+                text="CHAT"
+                handle={validateChat}
+            />
         </div>
     );
 };

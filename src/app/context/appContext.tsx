@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useContext, ReactNode, useState } from "react";
-import dayjs from "../service/date";
+import {dayjs, formatDate, addDate} from "../service/date";
 
 type appContextType = {
     step: number;
@@ -74,8 +74,8 @@ export const AppProvider = ({children} : Props) => {
 
     const setSaillieDateValue = (value: string | null) => {
         if (value !== null) {
-            setSaillieDate(dayjs(value).format("DD/MM/YYYY"));
-            setOvulation(dayjs(value).add(1, "day").format("DD/MM/YYYY"));
+            setSaillieDate(formatDate({value, format: "DD/MM/YYYY"}));
+            setSaillieDate(addDate({value, addValue: 1, unit: "day", format: "DD/MM/YYYY"}));
             setDisabled(false)
         }
     };

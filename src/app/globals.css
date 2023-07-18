@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -25,64 +24,6 @@ a {
   text-decoration: none;
 }
 
-button {
-  border-radius: 3px;
-}
-
-button:not(.back-button) {
-  /* SIZE */
-  height: 6em;
-  width: 50%;
-
-  /* MARGIN & PADDING */
-  margin: 1em;
-
-  /* BORDER */
-  border: transparent;
-
-  /* BACKGROUND */
-  background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%);
-
-  /* FONT */
-  font-size: 15px;
-  letter-spacing: 10px;
-  color: #FFFF;
-  font-weight: bold;
-
-  /* TRANSITION */
-  transition: 1s;
-  background-size: 200% auto;
-  box-shadow: 0 0 20px #eee;
-  display: block;
-}
-
-.button:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-}
-
-button:disabled {
-  background-image: linear-gradient(to right, #bdc3c7 0%, #2c3e50  51%, #bdc3c7  100%);
-  cursor: not-allowed;
-}
-
-button:not(.disabled):hover{
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-  cursor: url('../../public/paw.png'), auto;
-}
-
-button.back-button {
-  background: dimgrey;
-  color: #fff;
-  width: 10em;
-  padding: 1em;
-  margin: 1em;
-  border: none;
-}
-
 /*320px — 480px : les mobiles*/
 @media only screen and (max-width: 480px) {
   @import url('https://fonts.googleapis.com/css2?family=Alata&family=Rampart+One&display=swap');
@@ -96,17 +37,22 @@ button.back-button {
   h3 {
     font-size: 15px;
   }
-
-  button {
-    padding: 10px;
-  }
-
-  button:not(.back-button) {
-    width: -webkit-fill-available;
-  }
 }
 
 /*481px — 768px : iPads, tablettes*/
+@media only screen and (max-width: 480px) {
+  @import url('https://fonts.googleapis.com/css2?family=Alata&family=Rampart+One&display=swap');
+
+  h1, label {
+    font-size: 20px;
+    font-family: "Alata", sans-serif;
+    margin: 36px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+}
 
 /*769px — 1024px : petits écrans, ordinateurs portables*/
 /*1025px — 1200px : ordinateurs de bureau, écrans larges*/

@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState} from "react";
-import dayjs from "../../service/date";
+import {dayjs} from "../../service/date";
 import {createPDF} from "../../service/pdf";
 import {useApp} from "../../context/appContext";
 import "./stepThree.scss";
+import Button from "@/app/component/Button";
 
 const Etape3 = () => {
     const [echographie, setEchographie] = useState({ day20: "", day25: "" });
@@ -64,7 +65,12 @@ const Etape3 = () => {
 
     return (
         <>
-            <button className="back-button"  onClick={back}>RETOUR</button>
+            <Button
+                text="RETOUR"
+                handle={back}
+                className="back-button"
+            />
+
             <div className="etape3-container">
                 {name.length > 0 ? (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} <span id="name">{name}</span> : </h1>) : (<h1>RESULTAT POUR MON {breed ? breed : "ANIMAL"} : </h1>)}
 
@@ -118,8 +124,16 @@ const Etape3 = () => {
                     </div>
                 </div>
 
-                <button className="savePDF" onClick={save}>TELECHARGER (PDF)</button>
-                <button onClick={restart}>RECOMMENCER</button>
+                <Button
+                    text="TELECHARGER (PDF)"
+                    handle={save}
+                    className="savePDF"
+                />
+
+                <Button
+                    text="RECOMMENCER"
+                    handle={restart}
+                />
             </div>
         </>
     );
