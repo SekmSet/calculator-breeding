@@ -17,3 +17,8 @@ variable "image_name" {
   type = string
   description = "Name of your image"
 }
+
+variable "image_tag" {
+  type = string
+  description = "Tag of your image"
+}

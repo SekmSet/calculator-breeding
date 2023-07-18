@@ -18,7 +18,7 @@ resource "google_cloud_run_v2_service" "default" {
       ports {
         container_port = var.port
       }
-      image = "eu.gcr.io/${var.project}/${var.image_name}:latest"
+      image = "eu.gcr.io/${var.project}/${var.image_name}:${var.image_tag}"
     }
   }
 

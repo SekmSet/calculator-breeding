@@ -1,14 +1,13 @@
-FROM node:20-alpine as builder
+FROM node:18-alpine as builder
 
 WORKDIR /app
 COPY . /app
 
-RUN npm install -g next@latest
+RUN npm install -g next@latest sass
 RUN npm install
+RUN next build
 
-CMD ["next", "build"]
-
-FROM node:20-alpine as starter
+FROM node:18-alpine as starter
 
 WORKDIR /app
 
