@@ -17,6 +17,9 @@ jobs:
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
+      - name : Google auth Docker
+        run: gcloud auth configure-docker
+
       - name: 'Build Docker image'
         run: docker build -f ./Dockerfile -t eu.gcr.io/deploy-276111/breeding-calculator:${{ github.sha }} .
 
