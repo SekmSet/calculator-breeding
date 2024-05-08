@@ -21,6 +21,14 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Using Docker & GCP
 
 ```bash
+# Connect to GCP account via terminal
+gcloud auth login
+
+# If error when using terraform apply command line use :
+gcloud auth application-default login  
+```
+
+```bash
 docker build -f [PATH TO YOUR DOCKERFILE] -t eu.gcr.io/[ID PROJECT]/[NAME]:[TAG] .
 ```
 
@@ -58,7 +66,8 @@ terraform plan
 ```
 
 ```bash
-terraform apply # OR terraform -var-file [NAME OF YOUR FILE].tfvars```
+terraform apply 
+# OR terraform -var-file [NAME OF YOUR FILE].tfvars
 ```
 
 Add a terraform file to create a backend file in a bucket storage
