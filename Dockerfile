@@ -5,7 +5,7 @@ COPY . /app
 
 RUN npm install -g next@latest sass
 RUN npm install
-RUN next build
+RUN npm run build
 
 FROM node:18-alpine as starter
 
