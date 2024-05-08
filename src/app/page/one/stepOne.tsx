@@ -4,16 +4,16 @@ import Button from "../../component/Button";
 import "./stepOne.scss";
 
 const Etape1 = () => {
-    const { setBreedValue, setStepValue } = useApp();
+    const { setCategoryValue, setStepValue } = useApp();
 
     const validateChien = () => {
         setStepValue(2);
-        setBreedValue("CHIEN")
+        setCategoryValue("CHIEN")
     };
 
     const validateChat = () => {
         setStepValue(2);
-        setBreedValue("CHAT")
+        setCategoryValue("CHAT")
     };
 
     return (

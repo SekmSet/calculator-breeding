@@ -15,7 +15,16 @@ type pdf = {
 }
 const createPDF = ({name, breed, ovulation, echographie, radiographie, naissance, saillieDate } : pdf) => {
     const doc = new jsPDF();
-    doc.text(`Suivi de gestation pour mon ${breed.toLowerCase()} ${name ?? name}`, 10, 10);
+
+    let string = '';
+
+    if (name) {
+        string = `Suivi de gestation pour ${name}`
+    } else {
+        string = `Suivi de gestation pour mon ${breed}`
+    }
+
+    doc.text(string, 10, 10);
 
     doc.text("Date d'accouplement", 10, 20);
     doc.text(`${saillieDate}`, 70, 20);
@@ -45,7 +54,7 @@ const createPDF = ({name, breed, ovulation, echographie, radiographie, naissance
 
     doc.text("En cas de doute je consulte mon vétérinaire ou un vétérinaire d'urgence", 10, 190);
     doc.text("Numéro de téléphone de mon véterinaire ", 10, 200);
-    doc.text("Numéro de téléphone un véterinaire d'urgence ", 10, 220);
+    doc.text("Numéro de téléphone véterinaire d'urgence ", 10, 220);
     doc.text("Remarque(s) ", 10, 240);
 
     doc.save("breeding.pdf");

@@ -69,13 +69,14 @@ export const AppProvider = ({children} : Props) => {
     }
 
     const setBreedValue = (value : string) => {
+        console.log(value)
         setBreed(value)
     }
 
     const setSaillieDateValue = (value: string | null) => {
         if (value !== null) {
             setSaillieDate(formatDate({value, format: "DD/MM/YYYY"}));
-            setSaillieDate(addDate({value, addValue: 1, unit: "day", format: "DD/MM/YYYY"}));
+            setOvulation(addDate({value, addValue: 1, unit: "day", format: "DD/MM/YYYY"}));
             setDisabled(false)
         }
     };
@@ -111,5 +112,3 @@ export const AppProvider = ({children} : Props) => {
         {children}
     </AppContext.Provider>;
 };
-
-// export default AppContext;

@@ -40,7 +40,7 @@ const Etape2 = () => {
                         <label>CHOIX DE LA RACE</label>
                         <select onChange={(e) => setBreedValue(e.target.value)} name="chats" id="chat-select">
                             {cats.list?.map((cat : CatType, index: number) => (
-                                <option value={cat.id} key={index}>
+                                <option value={cat.name} key={index}>
                                     {cat.name}
                                 </option>
                             ))}
