@@ -41,3 +41,7 @@ next-config.js
 
 .terraform
 .terraform.lock.hcl
+
+terraform_aws/tfvars.prod
+
+deploy-276111-e2272660d850.json

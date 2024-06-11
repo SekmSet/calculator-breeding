@@ -20,9 +20,6 @@ jobs:
       - name : Google auth Docker
         run: gcloud auth configure-docker
 
-      - name : 'test'
-        run: gcloud auth list
-
       - name: 'Build Docker image'
         run: docker build -f ./Dockerfile -t eu.gcr.io/deploy-276111/breeding-calculator:${{ github.sha }} .
 
